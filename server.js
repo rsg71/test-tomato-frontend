@@ -17,13 +17,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //api routes
-// app.use(routes);
+app.use(routes);
 
-
-// // If no API routes are hit, send the React app
-app.use(function (req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
 
 // Connect to Mongoose
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/rgLanguage",
