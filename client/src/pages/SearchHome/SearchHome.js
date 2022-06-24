@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 import SearchResultsSection from '../../components/SearchResultsSection/SearchResultsSection';
-import Spinner from '../../components/Spinner/Spinner';
 import { simulateNetworkRequest } from '../../utils/helperFunctions';
 
 export default function SearchHome() {
@@ -26,6 +26,7 @@ export default function SearchHome() {
 
 
     const handleSearch = () => {
+        console.log("click")
         setIsSearching(true);
 
         simulateNetworkRequest()
@@ -43,7 +44,7 @@ export default function SearchHome() {
                     <Col>
                         <div className="input-group mb-3">
                             <input name="searchTerm" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} type="search" className="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" />
-                            <button className="btn btn-primary" type="button" id="button-addon2"><i className="bi bi-search" onClick={handleSearch} /></button>
+                            <button className="btn btn-primary" type="button" id="button-addon2" onClick={() => handleSearch()}><i className="bi bi-search" /></button>
                         </div>
 
                         <div>
@@ -67,7 +68,7 @@ export default function SearchHome() {
                 <Row className="mt-3">
                     <Col>
 
-                        {isSearching && <Spinner />}
+                        {isSearching && <LoadingSpinner />}
 
 
 
@@ -79,6 +80,7 @@ export default function SearchHome() {
                                     :
                                     <div className="text-muted">0 results found</div>
                                 }
+                                {/* found results! */}
                                 <SearchResultsSection />
                             </>
                         }
