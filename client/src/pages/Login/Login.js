@@ -14,7 +14,7 @@ export default function Login() {
 
                 <Row className="justify-content-md-center">
                     <Col lg={4}>
-                        <div>
+                        <div className="text-center">
                             <img src="https://webstockreview.net/images/tomatoes-clipart-logo-4.png" alt="tomato" style={{ width: "30%" }} />
                         </div>
                     </Col>
@@ -27,7 +27,7 @@ export default function Login() {
                         <input className="form-control" value={email} name="email" onChange={e => setEmail(e.target.value)} />
 
                         <label>Password</label>
-                        <input className="form-control" value={password} name="password" onChange={e => setPassword(e.target.value)} />
+                        <input className="form-control" value={password} name="password" onChange={e => setPassword(e.target.value)} type="password" />
 
                     </Col>
                 </Row>

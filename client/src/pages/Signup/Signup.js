@@ -16,7 +16,7 @@ export default function Signup() {
 
                 <Row className="justify-content-md-center">
                     <Col lg={4}>
-                        <div>
+                        <div className="text-center">
                             <img src="https://webstockreview.net/images/tomatoes-clipart-logo-4.png" alt="tomato" style={{ width: "30%" }} />
                         </div>
                     </Col>
@@ -32,17 +32,17 @@ export default function Signup() {
                         <input className="form-control" value={name} name="name" onChange={e => setName(e.target.value)} />
 
                         <label>Password</label>
-                        <input className="form-control" value={password} name="password" onChange={e => setPassword(e.target.value)} />
+                        <input className="form-control" value={password} name="password" onChange={e => setPassword(e.target.value)} type="password" />
 
                         <label>Confirm Password</label>
-                        <input className="form-control" value={confirmPassword} name="confirmPassword" onChange={e => setConfirmPassword(e.target.value)} />
+                        <input className="form-control" value={confirmPassword} name="confirmPassword" onChange={e => setConfirmPassword(e.target.value)} type="password" />
 
                     </Col>
                 </Row>
 
                 <Row className="justify-content-md-center mt-3">
                     <Col lg={4}>
-                        <div>
+                        <div className="mb-2">
                             <button className="btn btn-danger text-white">Register</button>
                         </div>
                         <div className='mb-2'>

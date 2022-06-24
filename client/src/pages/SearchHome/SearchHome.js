@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import SearchResultsSection from '../../components/SearchResultsSection/SearchResultsSection';
+import Spinner from '../../components/Spinner/Spinner';
 import { simulateNetworkRequest } from '../../utils/helperFunctions';
 
 export default function SearchHome() {
@@ -40,9 +41,9 @@ export default function SearchHome() {
             <Container className="mt-3">
                 <Row >
                     <Col>
-                        <div class="input-group mb-3">
-                            <input name="searchTerm" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} type="search" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" />
-                            <button class="btn btn-primary" type="button" id="button-addon2"><i className="bi bi-search" onClick={handleSearch} /></button>
+                        <div className="input-group mb-3">
+                            <input name="searchTerm" value={searchTerm} onChange={e => setSearchTerm(e.target.value)} type="search" className="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" />
+                            <button className="btn btn-primary" type="button" id="button-addon2"><i className="bi bi-search" onClick={handleSearch} /></button>
                         </div>
 
                         <div>
@@ -66,7 +67,7 @@ export default function SearchHome() {
                 <Row className="mt-3">
                     <Col>
 
-                        {isSearching && <h4>Searching...</h4>}
+                        {isSearching && <Spinner />}
 
 
 

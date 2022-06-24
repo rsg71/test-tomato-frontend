@@ -19,10 +19,14 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <NavBar />
 
     <BrowserRouter>
+      <NavBar />
+
+
       <Routes>
+
+
         <Route path="/" element={<SearchHome />} />
         <Route path="/test" element={<Profile />} />
         <Route path="/login" element={<Login />} />
