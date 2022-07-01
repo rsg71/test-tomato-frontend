@@ -1,12 +1,42 @@
 import { useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import API from '../../utils/API';
+import { useNavigate } from 'react-router-dom';
 
 export default function Signup() {
 
-    const [email, setEmail] = useState("");
-    const [name, setName] = useState("");
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
+    const navigate = useNavigate();
+
+
+
+    const [formData, setFormData] = useState({
+        email: "",
+        name: "",
+        password: "",
+        confirmPassword: ""
+    })
+
+    const handleInputChange = (e) => {
+        let { name, value } = e;
+        setFormData({ ...formData, [name]: value })
+    }
+
+    const handleSignUp = () => {
+        console.log("formData: ", formData);
+
+        let { email, name, password } = formData;
+        let relevantData = {
+            email, name, password
+        }
+        API.signup(relevantData)
+            .then(res => {
+                console.log(res);
+                navigate("/login")
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
 
 
     return (
@@ -26,16 +56,16 @@ export default function Signup() {
                 <Row className="justify-content-md-center">
                     <Col lg={4}>
                         <label>Email</label>
-                        <input className="form-control" value={email} name="email" onChange={e => setEmail(e.target.value)} />
+                        <input className="form-control" value={formData.email} name="email" onChange={e => handleInputChange(e.target)} />
 
                         <label>Name</label>
-                        <input className="form-control" value={name} name="name" onChange={e => setName(e.target.value)} />
+                        <input className="form-control" value={formData.name} name="name" onChange={e => handleInputChange(e.target)} />
 
                         <label>Password</label>
-                        <input className="form-control" value={password} name="password" onChange={e => setPassword(e.target.value)} type="password" />
+                        <input className="form-control" value={formData.password} name="password" onChange={e => handleInputChange(e.target)} type="password" />
 
                         <label>Confirm Password</label>
-                        <input className="form-control" value={confirmPassword} name="confirmPassword" onChange={e => setConfirmPassword(e.target.value)} type="password" />
+                        <input className="form-control" value={formData.confirmPassword} name="confirmPassword" onChange={e => handleInputChange(e.target)} type="password" />
 
                     </Col>
                 </Row>
@@ -43,7 +73,7 @@ export default function Signup() {
                 <Row className="justify-content-md-center mt-3">
                     <Col lg={4}>
                         <div className="mb-2">
-                            <button className="btn btn-danger text-white">Register</button>
+                            <button className="btn btn-danger text-white" onClick={handleSignUp}>Register</button>
                         </div>
                         <div className='mb-2'>
                             <button className="btn btn-danger text-white">Back</button>

@@ -34,6 +34,8 @@ root.render(
         <Route path="/my-profile" element={<MyProfile />} />
         <Route path="/friends-profile" element={<FriendsProfile />} />
 
+        <Route path="/user-home" element={<FriendsProfile />} />
+
       </Routes>
     </BrowserRouter>
   </>
