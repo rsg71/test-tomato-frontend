@@ -82,6 +82,7 @@ export default function SearchHome() {
                                 }
                                 {/* found results! */}
                                 <SearchResultsSection />
+                                {/* <ImageMasonry /> */}
                             </>
                         }
 

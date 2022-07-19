@@ -19,7 +19,7 @@ export default function MyProfile() {
             {/* Profile */}
             <ProfileSection />
 
-            <ProfileResultsSection />
+            {/* <ProfileResultsSection /> */}
 
           </Col>
         </Row>

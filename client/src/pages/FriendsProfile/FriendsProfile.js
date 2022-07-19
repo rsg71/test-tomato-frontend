@@ -15,7 +15,7 @@ export default function FriendsProfile() {
         <ProfileSection />
 
 
-        <ProfileResultsSection />
+        {/* <ProfileResultsSection /> */}
 
 
         <Row>
